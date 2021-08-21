@@ -22,9 +22,9 @@
 
   <meta name="description" content="1997-2021">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Wu 的 个人小站">
+<meta property="og:title" content="Wu 的 技术笔记">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Wu 的 个人小站">
+<meta property="og:site_name" content="Wu 的 技术笔记">
 <meta property="og:description" content="1997-2021">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Wu">
@@ -43,7 +43,7 @@
   };
 </script>
 
-  <title>Wu 的 个人小站</title>
+  <title>Wu 的 技术笔记</title>
   
 
 
@@ -94,7 +94,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Wu 的 个人小站</h1>
+      <h1 class="site-title">Wu 的 技术笔记</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -185,6 +185,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/22/%E5%A6%82%E4%BD%95%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Wu">
+      <meta itemprop="description" content="1997-2021">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Wu 的 技术笔记">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/22/%E5%A6%82%E4%BD%95%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0GitHub%E4%B8%8A/" class="post-title-link" itemprop="url">如何将hexo博客部署到GitHub上</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-22 00:28:34 / 修改时间：01:07:05" itemprop="dateCreated datePublished" datetime="2021-08-22T00:28:34+08:00">2021-08-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>官方的文档有部分错误描述，如果完全遵照会无法让页面上线。我深受其害（指浪费了一整天假期）</p>
+<h4 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h4><h5 id="创建一个公共仓库"><a href="#创建一个公共仓库" class="headerlink" title="创建一个公共仓库"></a>创建一个公共仓库</h5><p>以如下格式命名，用户ID不能有大写字母，否则创建的页面只会出现 404 NOT FOUND 提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/&lt;username&gt;/&lt;project&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="安装-hexo-deployer-git"><a href="#安装-hexo-deployer-git" class="headerlink" title="安装 hexo-deployer-git"></a>安装 hexo-deployer-git</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h5 id="在-config-yml（如果有已存在的请删除）添加如下配置："><a href="#在-config-yml（如果有已存在的请删除）添加如下配置：" class="headerlink" title="在 _config.yml（如果有已存在的请删除）添加如下配置："></a>在 _config.yml（如果有已存在的请删除）添加如下配置：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/&lt;username&gt;/&lt;project&gt;</span><br><span class="line">  <span class="comment"># example, https://github.com/hexojs/hexojs.github.io</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h5 id="运行-hexo-clean-hexo-deploy"><a href="#运行-hexo-clean-hexo-deploy" class="headerlink" title="运行  hexo clean && hexo deploy "></a>运行 <CODE> hexo clean && hexo deploy </CODE></h5><h5 id="登录自己的Github，并在-Repository-Settings-中将默认分支设置为在-config-yml-中配置的分支名称"><a href="#登录自己的Github，并在-Repository-Settings-中将默认分支设置为在-config-yml-中配置的分支名称" class="headerlink" title="登录自己的Github，并在 Repository Settings 中将默认分支设置为在 _config.yml 中配置的分支名称"></a>登录自己的Github，并在 Repository Settings 中将默认分支设置为在 _config.yml 中配置的分支名称</h5><h5 id="在-Repository-Settings-Page-中的-Source-选择所配置的分支名称，稍等片刻，站点就会显示在您的Github-Pages中。"><a href="#在-Repository-Settings-Page-中的-Source-选择所配置的分支名称，稍等片刻，站点就会显示在您的Github-Pages中。" class="headerlink" title="在 Repository Settings / Page 中的 Source 选择所配置的分支名称，稍等片刻，站点就会显示在您的Github Pages中。"></a>在 Repository Settings / Page 中的 Source 选择所配置的分支名称，稍等片刻，站点就会显示在您的Github Pages中。</h5><h4 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h4><ol>
+<li><p><CODE>hexo deploy</CODE> 指令创建的 .deploy_git 文件不会被上传到仓库</p>
+</li>
+<li><p>建议分别用两个仓库来存放hexo博客，一个存放数据，另一个作为页面展示用。</p>
+</li>
+<li><p>一键部署时务必先使用 <CODE>hexo clean</CODE> 指令清楚缓存，否则会出现 spawn failed 错误致使部署失败。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/20/CSS-%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,7 +268,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -251,7 +325,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -312,7 +386,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -530,7 +604,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -607,7 +681,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -685,7 +759,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -763,7 +837,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -842,7 +916,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -940,7 +1014,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
+      <meta itemprop="name" content="Wu 的 技术笔记">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -1006,96 +1080,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/12/Windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
-      <meta itemprop="name" content="Wu">
-      <meta itemprop="description" content="1997-2021">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Wu 的 个人小站">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/12/Windows%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" class="post-title-link" itemprop="url">Windows软件推荐</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-08-12 15:15:32" itemprop="dateCreated datePublished" datetime="2021-08-12T15:15:32+08:00">2021-08-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-20 14:14:38" itemprop="dateModified" datetime="2021-08-20T14:14:38+08:00">2021-08-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="压缩工具"><a href="#压缩工具" class="headerlink" title="压缩工具"></a>压缩工具</h4><h5 id="7-Zip-压缩工具"><a href="#7-Zip-压缩工具" class="headerlink" title="7-Zip 压缩工具"></a>7-Zip 压缩工具</h5><p><a target="_blank" rel="noopener" href="https://sparanoid.com/lab/7z/">https://sparanoid.com/lab/7z/</a></p>
-<h5 id="Winrar-老牌压缩工具"><a href="#Winrar-老牌压缩工具" class="headerlink" title="Winrar 老牌压缩工具"></a>Winrar 老牌压缩工具</h5><hr>
-<h4 id="功能增强工具"><a href="#功能增强工具" class="headerlink" title="功能增强工具"></a>功能增强工具</h4><h5 id="Clover-多标签资源管理器"><a href="#Clover-多标签资源管理器" class="headerlink" title="Clover 多标签资源管理器"></a>Clover 多标签资源管理器</h5><h5 id="Wox-索引工具"><a href="#Wox-索引工具" class="headerlink" title="Wox 索引工具"></a>Wox 索引工具</h5><p><a target="_blank" rel="noopener" href="https://github.com/Wox-launcher/Wox/releases">https://github.com/Wox-launcher/Wox/releases</a></p>
-<h5 id="Everything-全盘搜索软件"><a href="#Everything-全盘搜索软件" class="headerlink" title="Everything 全盘搜索软件"></a>Everything 全盘搜索软件</h5><p><a target="_blank" rel="noopener" href="https://www.voidtools.com/zh-cn/">https://www.voidtools.com/zh-cn/</a></p>
-<h5 id="Notepad3-文本编辑软件"><a href="#Notepad3-文本编辑软件" class="headerlink" title="Notepad3 文本编辑软件"></a>Notepad3 文本编辑软件</h5><p><a target="_blank" rel="noopener" href="https://www.rizonesoft.com/downloads/notepad3/">https://www.rizonesoft.com/downloads/notepad3/</a></p>
-<h5 id="Geek-uninstaller-便捷卸载工具"><a href="#Geek-uninstaller-便捷卸载工具" class="headerlink" title="Geek uninstaller 便捷卸载工具"></a>Geek uninstaller 便捷卸载工具</h5><p><a target="_blank" rel="noopener" href="https://geekuninstaller.com/">https://geekuninstaller.com/</a></p>
-<h5 id="TrafficMonitor-流量监控器"><a href="#TrafficMonitor-流量监控器" class="headerlink" title="TrafficMonitor 流量监控器"></a>TrafficMonitor 流量监控器</h5><p><a target="_blank" rel="noopener" href="https://github.com/zhongyang219/TrafficMonitor">https://github.com/zhongyang219/TrafficMonitor</a></p>
-<hr>
-<h4 id="多媒体工具"><a href="#多媒体工具" class="headerlink" title="多媒体工具"></a>多媒体工具</h4><h5 id="Potplayer-多功能视频播放器"><a href="#Potplayer-多功能视频播放器" class="headerlink" title="Potplayer 多功能视频播放器"></a>Potplayer 多功能视频播放器</h5><p><a target="_blank" rel="noopener" href="https://potplayer.daum.net/?lang=zh_CN">https://potplayer.daum.net/?lang=zh_CN</a></p>
-<h5 id="千千静听-低内存消耗音乐播放器"><a href="#千千静听-低内存消耗音乐播放器" class="headerlink" title="千千静听 低内存消耗音乐播放器"></a>千千静听 低内存消耗音乐播放器</h5><hr>
-<h4 id="下载工具"><a href="#下载工具" class="headerlink" title="下载工具"></a>下载工具</h4><h5 id="百度网盘-大陆内不得已的选择"><a href="#百度网盘-大陆内不得已的选择" class="headerlink" title="百度网盘 (大陆内不得已的选择)"></a>百度网盘 (大陆内不得已的选择)</h5><h5 id="Free-Download-Manager-免费多功能下载器"><a href="#Free-Download-Manager-免费多功能下载器" class="headerlink" title="Free Download Manager 免费多功能下载器"></a>Free Download Manager 免费多功能下载器</h5><p><a target="_blank" rel="noopener" href="https://www.freedownloadmanager.org/zh/">https://www.freedownloadmanager.org/zh/</a></p>
-<hr>
-<h4 id="安全软件"><a href="#安全软件" class="headerlink" title="安全软件"></a>安全软件</h4><h5 id="火绒安全软件-无广告清流杀软"><a href="#火绒安全软件-无广告清流杀软" class="headerlink" title="火绒安全软件 无广告清流杀软"></a>火绒安全软件 无广告清流杀软</h5><p><a target="_blank" rel="noopener" href="https://www.huorong.cn/">https://www.huorong.cn/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1163,7 +1151,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
