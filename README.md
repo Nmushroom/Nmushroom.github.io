@@ -1,0 +1,2 @@
+# nmushroom.github.io
+hexo
